@@ -13,90 +13,24 @@
  *     → 벽 삭제·실행 취소 → JSON 저장 → 저장 파일을 정답과 채점(마우스 보정 오차가 그대로 드러난다)
  * 모바일(390×844, 터치): 네 화면의 가로 넘침, 3D 준비, 터치 끌기로 시점이 바뀌는지, 스크린샷
  */
-import { spawn } from "node:child_process";
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import { log, openChrome, sleep } from "./cdp-session.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\..+$/, "").replace("T", "-");
 const OUT = path.resolve(process.argv[2] ?? path.join(ROOT, "eval-results", `browser-${stamp}`));
 const BASE = process.env.BASE_URL ?? "http://localhost:3310";
-const CHROME = process.env.CHROME_PATH ?? "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const PORT = 9351;
 const CASE_DIR = path.join(ROOT, "examples/floor-plans/eval/studio-clean");
 const DOWNLOADS = path.join(OUT, "downloads");
 mkdirSync(DOWNLOADS, { recursive: true });
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
 const results = [];
-
-const chrome = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${PORT}`, `--user-data-dir=${path.join(OUT, "profile")}`, "--window-size=1680,950", "--no-first-run", "about:blank"]);
-
-let ws;
-let seq = 0;
-const pending = new Map();
-const errors = [];
-const send = (method, params = {}, timeout = 30000) =>
-  new Promise((resolve, reject) => {
-    const id = ++seq;
-    const timer = setTimeout(() => {
-      pending.delete(id);
-      reject(new Error(`${method}: 응답 없음(${timeout / 1000}s)`));
-    }, timeout);
-    pending.set(id, (msg) => {
-      clearTimeout(timer);
-      if (msg.error) reject(new Error(`${method}: ${msg.error.message}`));
-      else resolve(msg.result);
-    });
-    ws.send(JSON.stringify({ id, method, params }));
-  });
-const evaluate = async (expr) => (await send("Runtime.evaluate", { expression: expr, returnByValue: true, awaitPromise: true })).result.value;
-const waitFor = async (expr, timeout = 60000) => {
-  const t0 = Date.now();
-  while (Date.now() - t0 < timeout) {
-    if (await evaluate(expr).catch(() => false)) return Date.now() - t0;
-    await sleep(300);
-  }
-  throw new Error(`시간 초과: ${expr.slice(0, 120)}`);
-};
-const shot = async (name, clip) => {
-  const { data } = await send("Page.captureScreenshot", { format: "png", ...(clip ? { clip: { ...clip, scale: 1 } } : {}) });
-  const buf = Buffer.from(data, "base64");
-  if (name) writeFileSync(path.join(OUT, `${name}.png`), buf);
-  return buf;
-};
-const mouse = (type, x, y) => send("Input.dispatchMouseEvent", { type, x, y, button: "left", buttons: type === "mouseReleased" ? 0 : 1, clickCount: 1 });
-const clickAt = async (x, y) => {
-  await mouse("mouseMoved", x, y);
-  await mouse("mousePressed", x, y);
-  await mouse("mouseReleased", x, y);
-  await sleep(150);
-};
-const dragTo = async (a, b) => {
-  await mouse("mouseMoved", a[0], a[1]);
-  await mouse("mousePressed", a[0], a[1]);
-  for (let i = 1; i <= 8; i++) await send("Input.dispatchMouseEvent", { type: "mouseMoved", x: a[0] + ((b[0] - a[0]) * i) / 8, y: a[1] + ((b[1] - a[1]) * i) / 8, button: "left", buttons: 1 });
-  await mouse("mouseReleased", b[0], b[1]);
-  await sleep(150);
-};
-const key = async (k, code, vk, mods = 0) => {
-  await send("Input.dispatchKeyEvent", { type: "keyDown", key: k, code, windowsVirtualKeyCode: vk, modifiers: mods, text: k.length === 1 && !mods ? k : undefined });
-  await send("Input.dispatchKeyEvent", { type: "keyUp", key: k, code, windowsVirtualKeyCode: vk, modifiers: mods });
-  await sleep(150);
-};
-const clickButton = (text) => evaluate(`(() => { const b = [...document.querySelectorAll("button")].find((x) => x.textContent.trim() === ${JSON.stringify(text)}); if (!b) return false; b.click(); return true; })()`);
-const count = (sel) => evaluate(`document.querySelectorAll(${JSON.stringify(sel)}).length`);
-const center = (sel) => evaluate(`(() => { const r = document.querySelector(${JSON.stringify(sel)})?.getBoundingClientRect(); return r ? [r.x + r.width / 2, r.y + r.height / 2] : null; })()`);
-const svgToScreen = (svgSel, pts) =>
-  evaluate(`(() => { const s = document.querySelector(${JSON.stringify(svgSel)}); const m = s.getScreenCTM(); return ${JSON.stringify(pts)}.map(([x, y]) => { const p = new DOMPoint(x, y).matrixTransform(m); return [p.x, p.y]; }); })()`);
-const setFiles = async (selector, files) => {
-  const { root } = await send("DOM.getDocument", { depth: -1, pierce: true });
-  const { nodeId } = await send("DOM.querySelector", { nodeId: root.nodeId, selector });
-  await send("DOM.setFileInputFiles", { nodeId, files });
-};
+const browser = await openChrome({ port: PORT, profileDir: path.join(OUT, "profile"), shotDir: OUT });
+const { send, evaluate, waitFor, shot, clickAt, dragTo, key, clickButton, count, center, svgToScreen, setFiles, errors } = browser;
 const ready3d = `!document.body.innerText.includes("실내 공간 준비 중") && !!document.querySelector("canvas") && document.querySelector("canvas").getBoundingClientRect().width > 50`;
 const backendBadge = `[...document.querySelectorAll("span")].map((e) => e.textContent.trim()).find((t) => t === "WebGPU" || t === "WebGL 2 대체") ?? null`;
 // 사무실·도면 화면: "60 FPS" 한 덩어리, 거실(성능 패널): "FPS" 라벨 옆 값
@@ -147,26 +81,6 @@ async function viewerCheck(d, url, shotName, settleMs = 5000) {
 }
 
 try {
-  let targets;
-  for (let i = 0; i < 60; i++) {
-    try {
-      targets = await (await fetch(`http://127.0.0.1:${PORT}/json`)).json();
-      if (targets.some((t) => t.type === "page")) break;
-    } catch {}
-    await sleep(250);
-  }
-  ws = new WebSocket(targets.find((t) => t.type === "page").webSocketDebuggerUrl);
-  await new Promise((r) => (ws.onopen = r));
-  ws.onmessage = (m) => {
-    const msg = JSON.parse(m.data);
-    if (msg.id && pending.has(msg.id)) {
-      pending.get(msg.id)(msg);
-      pending.delete(msg.id);
-    } else if (msg.method === "Runtime.exceptionThrown") errors.push(msg.params.exceptionDetails.exception?.description ?? msg.params.exceptionDetails.text);
-    else if (msg.method === "Runtime.consoleAPICalled" && msg.params.type === "error") errors.push(msg.params.args.map((a) => a.value ?? a.description).join(" ").slice(0, 500));
-  };
-  await send("Page.enable");
-  await send("Runtime.enable");
   await send("Browser.setDownloadBehavior", { behavior: "allow", downloadPath: DOWNLOADS });
 
   const env = { browser: (await send("Browser.getVersion")).product };
@@ -344,6 +258,7 @@ try {
         return { rect: { x: r.x + scrollX, y: y0 + scrollY, width: r.width, height: y1 - y0 }, covered: Math.round((1 - free.length / total) * 100) / 100, free };
       })()`);
       d.coveredRatio = probe.covered;
+      if (probe.covered > 0.5) throw new Error(`3D 화면의 ${Math.round(probe.covered * 100)}%를 UI가 가림(좁은 화면 기본 배치 확인)`);
       // 터치 끌기로 시점 변경: 캔버스가 노출된 점에서 가로로 끌고 화면 변화를 비교한다.
       const start = probe.free.find(([x, y]) => probe.free.some(([x2, y2]) => y2 === y && x2 - x >= 100)) ?? probe.free[0];
       if (!start) throw new Error("캔버스가 노출된 지점이 없음(UI가 3D 화면을 모두 덮음)");
@@ -372,6 +287,5 @@ try {
   log("중단:", e.message);
   process.exitCode = 1;
 } finally {
-  ws?.close();
-  chrome.kill();
+  browser.close();
 }

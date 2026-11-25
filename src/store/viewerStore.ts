@@ -114,7 +114,9 @@ function errorMessage(error: unknown): string {
 }
 
 const DEFAULT_EFFECTS: EffectToggles = { shadows: true, lightmap: true, environment: true, ao: QUALITY_PRESETS.high.ao, ssr: false, lamps: true };
-const EMPTY_STATS: RenderStats = { fps: 0, frameMs: 0, drawCalls: 0, triangles: 0, geometries: 0, textures: 0 };
+/** 이 폭(px) 미만이면 좁은 화면으로 보고 설정·성능 패널을 접어서 시작한다(Tailwind md 경계와 같음). */
+const NARROW_SCREEN_PX = 768;
+const EMPTY_STATS: RenderStats ={ fps: 0, frameMs: 0, drawCalls: 0, triangles: 0, geometries: 0, textures: 0 };
 
 export const useViewerStore = create<ViewerState>()((set) => ({
   sceneKey: null,
@@ -141,6 +143,8 @@ export const useViewerStore = create<ViewerState>()((set) => ({
 
   resetForScene: (scene) => {
     const mode = scene.defaultMode;
+    // 좁은 화면(휴대폰 세로 등)에서는 패널이 3D 화면 대부분을 가리므로 접은 상태로 시작한다(버튼으로 펼 수 있다).
+    const expanded = !!scene.standalone && !(typeof window !== "undefined" && window.innerWidth < NARROW_SCREEN_PX);
     set({
       sceneKey: sceneKey(scene),
       phase: "detecting",
@@ -165,8 +169,8 @@ export const useViewerStore = create<ViewerState>()((set) => ({
       stats: EMPTY_STATS,
       warnings: [],
       // 단독 뷰어(거실)는 설정 패널을 펼치고, 2D·3D 비교 화면(사무실·도면)은 접어 둔다.
-      panelOpen: !!scene.standalone,
-      statsOpen: !!scene.standalone,
+      panelOpen: expanded,
+      statsOpen: expanded,
     });
   },
   setPhase: (phase, phaseDetail) => set({ phase, phaseDetail }),

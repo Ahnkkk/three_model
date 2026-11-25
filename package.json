@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit",
     "postinstall": "node scripts/copy-decoders.mjs",
     "verify:office": "node --import ./scripts/ts-hooks.mjs scripts/verify-office.ts",
+    "verify:viewer": "node --import ./scripts/ts-hooks.mjs scripts/verify-viewer.ts",
     "schema:floor-plan": "node --import ./scripts/ts-hooks.mjs scripts/generate-floor-plan-files.ts",
     "verify:floor-plan": "node --import ./scripts/ts-hooks.mjs scripts/verify-floor-plan.ts",
     "verify:editor": "node --import ./scripts/ts-hooks.mjs scripts/verify-floor-plan-editor.ts",
@@ -17,7 +18,9 @@
     "eval:samples": "node --import ./scripts/ts-hooks.mjs scripts/generate-eval-samples.ts",
     "eval:floor-plan": "node --import ./scripts/ts-hooks.mjs scripts/eval-floor-plan.ts",
     "score:floor-plan": "node --import ./scripts/ts-hooks.mjs scripts/score-floor-plan.ts",
-    "verify:browser": "node --import ./scripts/ts-hooks.mjs scripts/browser-matrix.mjs"
+    "verify:browser": "node --import ./scripts/ts-hooks.mjs scripts/browser-matrix.mjs",
+    "verify": "npm run typecheck && npm run verify:floor-plan && npm run verify:editor && npm run verify:ai && npm run verify:score && npm run verify:office && npm run verify:viewer",
+    "eval:manual": "node --import ./scripts/ts-hooks.mjs scripts/manual-baseline.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.14.0",

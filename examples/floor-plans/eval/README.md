@@ -52,6 +52,7 @@ npm run eval:floor-plan                      # 실제 호출 예정 횟수만 �
 npm run eval:floor-plan -- --yes             # 실제 모델 호출(.env.local의 키, 비용 발생)
 npm run eval:floor-plan -- --yes --provider claude --case studio-clean --repeat 3
 npm run score:floor-plan -- truth.json saved.json --case case.json   # 저장한 문서 두 개 채점
+npm run eval:manual                          # 수동 경로 기준선: 편집기로 정답을 입력하는 최소 조작 수(dev 서버 필요)
 ```
 
 결과는 `eval-results/<시각>/`에 사례별 응답·초안·채점 JSON과 `summary.md` 표로 남습니다(커밋하지 않음). 채점 규칙과 허용 오차는 [score.ts](../../../src/lib/floorPlan/eval/score.ts)의 `SCORE_TOLERANCE`에 고정되어 있습니다.

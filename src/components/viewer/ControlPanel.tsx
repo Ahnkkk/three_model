@@ -53,13 +53,13 @@ export default function ControlPanel({ showModeSwitch = true }: { showModeSwitch
       {/* 1인칭 화면: 마우스 시점 안내·확대 배율(시점 버튼 위) */}
       {keyboard && <LookHint />}
 
-      {/* 대표 시점(장면·표시 모드별) */}
-      <div className="absolute bottom-4 left-1/2 z-10 flex max-w-[calc(100%-2rem)] -translate-x-1/2 flex-wrap justify-center gap-1 rounded-3xl border border-white/10 bg-stone-900/75 p-1 shadow-lg backdrop-blur">
+      {/* 대표 시점(장면·표시 모드별). 좁은 화면에서 여러 줄로 접혀 3D 화면을 가리지 않도록 한 줄로 두고 넘치면 가로로 넘긴다. */}
+      <div className="absolute bottom-4 left-1/2 z-10 flex max-w-[calc(100%-2rem)] -translate-x-1/2 flex-nowrap gap-1 overflow-x-auto rounded-3xl border border-white/10 bg-stone-900/75 p-1 shadow-lg backdrop-blur [scrollbar-width:none]">
         {views.map((v) => (
           <button
             key={v.id}
             onClick={() => s.goToView(v.id)}
-            className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+            className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-sm transition-colors ${
               s.activeView === v.id ? "bg-stone-100 text-stone-900" : "text-stone-200 hover:bg-white/10"
             }`}
           >
