@@ -1,0 +1,17 @@
+{
+  "description": "오류 예제별로 반드시 검출되어야 하는 error 목록(code@path). 검증 스크립트는 실제 error 집합이 이 목록과 정확히 같은지 확인한다.",
+  "cases": [
+    { "file": "missing-unit.json", "rule": "단위 누락", "errors": ["schema.required@/unit"] },
+    { "file": "duplicate-id.json", "rule": "ID 중복", "errors": ["id.duplicate@/walls/1/id"] },
+    { "file": "reserved-wall-id.json", "rule": "외곽 벽 예약 ID 사용", "errors": ["id.reserved@/walls/0/id"] },
+    { "file": "bad-wall-ref.json", "rule": "잘못된 벽 참조", "errors": ["opening.wallNotFound@/openings/0/wallId"] },
+    { "file": "zero-length-wall.json", "rule": "0길이 벽", "errors": ["wall.zeroLength@/walls/1"] },
+    { "file": "wall-overlap.json", "rule": "같은 선 위에서 겹치는 벽", "errors": ["wall.overlap@/walls/1"] },
+    { "file": "negative-size.json", "rule": "음수 크기", "errors": ["schema.too_small@/furniture/0/size/0"] },
+    { "file": "opening-out-of-range.json", "rule": "개구부 범위 초과", "errors": ["opening.outOfRange@/openings/0/offset"] },
+    { "file": "opening-overlap.json", "rule": "개구부 중복", "errors": ["opening.overlap@/openings/1"] },
+    { "file": "interior-window.json", "rule": "미지원 형상(내부 벽 창)", "errors": ["opening.unsupportedInteriorWindow@/openings/0"] },
+    { "file": "unknown-field.json", "rule": "오타·미지원 필드", "errors": ["schema.required@/walls/0/thickness", "schema.unrecognized_keys@/walls/0"] },
+    { "file": "image-without-calibration.json", "rule": "이미지 원본의 배율 보정 누락", "errors": ["calibration.missing@/calibration"] }
+  ]
+}

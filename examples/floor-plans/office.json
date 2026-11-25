@@ -1,0 +1,1241 @@
+{
+  "$schema": "../../schemas/floor-plan-document.v1.schema.json",
+  "schemaVersion": 1,
+  "id": "office",
+  "revision": 1,
+  "title": "사무실",
+  "unit": "m",
+  "envelope": {
+    "width": 18,
+    "depth": 8,
+    "wallThickness": 0.2
+  },
+  "ceilingHeight": 2.8,
+  "walls": [
+    {
+      "id": "large-meeting-east",
+      "kind": "glass",
+      "start": [
+        5,
+        0
+      ],
+      "end": [
+        5,
+        8
+      ],
+      "thickness": 0.08
+    },
+    {
+      "id": "small-meeting-north",
+      "kind": "glass",
+      "start": [
+        5,
+        4
+      ],
+      "end": [
+        8.6,
+        4
+      ],
+      "thickness": 0.08
+    },
+    {
+      "id": "small-meeting-east",
+      "kind": "glass",
+      "start": [
+        8.6,
+        4
+      ],
+      "end": [
+        8.6,
+        8
+      ],
+      "thickness": 0.08
+    },
+    {
+      "id": "lounge-west",
+      "kind": "solid",
+      "start": [
+        15,
+        0
+      ],
+      "end": [
+        15,
+        3.6
+      ],
+      "thickness": 0.12
+    },
+    {
+      "id": "lounge-south",
+      "kind": "solid",
+      "start": [
+        15,
+        3.6
+      ],
+      "end": [
+        18,
+        3.6
+      ],
+      "thickness": 0.12
+    },
+    {
+      "id": "buffer-west",
+      "kind": "solid",
+      "start": [
+        15,
+        3.6
+      ],
+      "end": [
+        15,
+        4.6
+      ],
+      "thickness": 0.12
+    },
+    {
+      "id": "pantry-north",
+      "kind": "solid",
+      "start": [
+        15,
+        4.6
+      ],
+      "end": [
+        18,
+        4.6
+      ],
+      "thickness": 0.12
+    },
+    {
+      "id": "pantry-west-solid",
+      "kind": "solid",
+      "start": [
+        15,
+        4.6
+      ],
+      "end": [
+        15,
+        6.2
+      ],
+      "thickness": 0.12
+    },
+    {
+      "id": "pantry-west-glass",
+      "kind": "glass",
+      "start": [
+        15,
+        6.2
+      ],
+      "end": [
+        15,
+        8
+      ],
+      "thickness": 0.08
+    },
+    {
+      "id": "entry-stub",
+      "kind": "solid",
+      "start": [
+        13.6,
+        7
+      ],
+      "end": [
+        13.6,
+        8
+      ],
+      "thickness": 0.12
+    }
+  ],
+  "openings": [
+    {
+      "id": "west-window-1",
+      "wallId": "west",
+      "kind": "window",
+      "offset": 6.9,
+      "width": 1.3,
+      "height": 1.45,
+      "bottom": 0.85
+    },
+    {
+      "id": "west-window-2",
+      "wallId": "west",
+      "kind": "window",
+      "offset": 5,
+      "width": 1.3,
+      "height": 1.45,
+      "bottom": 0.85
+    },
+    {
+      "id": "west-window-3",
+      "wallId": "west",
+      "kind": "window",
+      "offset": 3.05,
+      "width": 1.3,
+      "height": 1.45,
+      "bottom": 0.85
+    },
+    {
+      "id": "west-window-4",
+      "wallId": "west",
+      "kind": "window",
+      "offset": 1.0999999999999996,
+      "width": 1.3,
+      "height": 1.45,
+      "bottom": 0.85
+    },
+    {
+      "id": "entrance",
+      "wallId": "south",
+      "kind": "door",
+      "offset": 3.75,
+      "width": 1,
+      "height": 2.15,
+      "bottom": 0,
+      "door": {
+        "leaf": "paint",
+        "hinge": "start",
+        "swing": "pos",
+        "angle": 75
+      }
+    },
+    {
+      "id": "large-meeting-door",
+      "wallId": "large-meeting-east",
+      "kind": "door",
+      "offset": 0.85,
+      "width": 0.9,
+      "height": 2.1,
+      "bottom": 0,
+      "door": {
+        "leaf": "glass",
+        "hinge": "start",
+        "swing": "pos",
+        "angle": 60
+      }
+    },
+    {
+      "id": "small-meeting-door",
+      "wallId": "small-meeting-north",
+      "kind": "door",
+      "offset": 3,
+      "width": 0.9,
+      "height": 2.1,
+      "bottom": 0,
+      "door": {
+        "leaf": "glass",
+        "hinge": "end",
+        "swing": "pos",
+        "angle": 55
+      }
+    },
+    {
+      "id": "lounge-entry",
+      "wallId": "lounge-south",
+      "kind": "passage",
+      "offset": 1.85,
+      "width": 0.9,
+      "height": 2.1,
+      "bottom": 0
+    },
+    {
+      "id": "buffer-door",
+      "wallId": "buffer-west",
+      "kind": "door",
+      "offset": 0.5,
+      "width": 0.82,
+      "height": 2.1,
+      "bottom": 0,
+      "door": {
+        "leaf": "wood",
+        "hinge": "start",
+        "swing": "neg",
+        "angle": 80
+      }
+    },
+    {
+      "id": "pantry-entry",
+      "wallId": "pantry-west-glass",
+      "kind": "passage",
+      "offset": 1.25,
+      "width": 0.9,
+      "height": 2.1,
+      "bottom": 0
+    }
+  ],
+  "columns": [
+    {
+      "id": "west-pier-1",
+      "center": [
+        0.09,
+        2.05
+      ],
+      "size": [
+        0.18,
+        0.5
+      ]
+    },
+    {
+      "id": "west-pier-2",
+      "center": [
+        0.09,
+        3.975
+      ],
+      "size": [
+        0.18,
+        0.5
+      ]
+    },
+    {
+      "id": "west-pier-3",
+      "center": [
+        0.09,
+        5.925
+      ],
+      "size": [
+        0.18,
+        0.5
+      ]
+    }
+  ],
+  "furniture": [
+    {
+      "id": "large-table",
+      "kind": "conferenceTable",
+      "label": "대회의 테이블",
+      "position": [
+        2.5,
+        0,
+        3.9
+      ],
+      "size": [
+        1.2,
+        0.74,
+        4.8
+      ],
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-1",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 1",
+      "position": [
+        1.6,
+        0,
+        2.025
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-2",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 2",
+      "position": [
+        1.6,
+        0,
+        2.775
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-3",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 3",
+      "position": [
+        1.6,
+        0,
+        3.525
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-4",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 4",
+      "position": [
+        1.6,
+        0,
+        4.275
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-5",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 5",
+      "position": [
+        1.6,
+        0,
+        5.025
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-6",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 6",
+      "position": [
+        1.6,
+        0,
+        5.775
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-7",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 7",
+      "position": [
+        3.4,
+        0,
+        2.025
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-8",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 8",
+      "position": [
+        3.4,
+        0,
+        2.775
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-9",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 9",
+      "position": [
+        3.4,
+        0,
+        3.525
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-10",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 10",
+      "position": [
+        3.4,
+        0,
+        4.275
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-11",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 11",
+      "position": [
+        3.4,
+        0,
+        5.025
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-12",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 12",
+      "position": [
+        3.4,
+        0,
+        5.775
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-13",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 13",
+      "position": [
+        2.5,
+        0,
+        1.2
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "group": "large-table"
+    },
+    {
+      "id": "large-table-chair-14",
+      "kind": "meetingChair",
+      "label": "대회의실 의자 14",
+      "position": [
+        2.5,
+        0,
+        6.6
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 180,
+      "group": "large-table"
+    },
+    {
+      "id": "bench-west",
+      "kind": "bench",
+      "label": "벤치(서측)",
+      "position": [
+        0.55,
+        0,
+        3.9
+      ],
+      "size": [
+        5.2,
+        0.78,
+        0.55
+      ],
+      "rotation": 90
+    },
+    {
+      "id": "bench-east",
+      "kind": "bench",
+      "label": "벤치(동측)",
+      "position": [
+        4.55,
+        0,
+        4
+      ],
+      "size": [
+        4.8,
+        0.78,
+        0.55
+      ],
+      "rotation": -90
+    },
+    {
+      "id": "credenza",
+      "kind": "lowCabinet",
+      "label": "낮은 수납장",
+      "position": [
+        2.6,
+        0,
+        7.75
+      ],
+      "size": [
+        2.4,
+        0.5,
+        0.4
+      ],
+      "rotation": 180
+    },
+    {
+      "id": "small-table",
+      "kind": "conferenceTable",
+      "label": "소회의 테이블",
+      "position": [
+        6.8,
+        0,
+        6.05
+      ],
+      "size": [
+        0.95,
+        0.74,
+        1.6
+      ],
+      "group": "small-table"
+    },
+    {
+      "id": "small-table-chair-1",
+      "kind": "meetingChair",
+      "label": "소회의실 의자 1",
+      "position": [
+        6.025,
+        0,
+        5.66
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "small-table"
+    },
+    {
+      "id": "small-table-chair-2",
+      "kind": "meetingChair",
+      "label": "소회의실 의자 2",
+      "position": [
+        6.025,
+        0,
+        6.44
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 90,
+      "group": "small-table"
+    },
+    {
+      "id": "small-table-chair-3",
+      "kind": "meetingChair",
+      "label": "소회의실 의자 3",
+      "position": [
+        7.575,
+        0,
+        5.66
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "small-table"
+    },
+    {
+      "id": "small-table-chair-4",
+      "kind": "meetingChair",
+      "label": "소회의실 의자 4",
+      "position": [
+        7.575,
+        0,
+        6.44
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -90,
+      "group": "small-table"
+    },
+    {
+      "id": "small-table-chair-5",
+      "kind": "meetingChair",
+      "label": "소회의실 의자 5",
+      "position": [
+        6.8,
+        0,
+        4.95
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "group": "small-table"
+    },
+    {
+      "id": "small-table-chair-6",
+      "kind": "meetingChair",
+      "label": "소회의실 의자 6",
+      "position": [
+        6.8,
+        0,
+        7.15
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": 180,
+      "group": "small-table"
+    },
+    {
+      "id": "h1",
+      "kind": "hDesk",
+      "label": "H형 ①",
+      "position": [
+        7.4,
+        0,
+        2.05
+      ],
+      "size": [
+        3.3,
+        0.74,
+        2.6
+      ],
+      "group": "h1"
+    },
+    {
+      "id": "h1-chair-1",
+      "kind": "officeChair",
+      "label": "H형 ① 의자 1",
+      "position": [
+        6.87,
+        0,
+        1.348
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": -90,
+      "group": "h1"
+    },
+    {
+      "id": "h1-chair-2",
+      "kind": "officeChair",
+      "label": "H형 ① 의자 2",
+      "position": [
+        6.87,
+        0,
+        2.752
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": -90,
+      "group": "h1"
+    },
+    {
+      "id": "h1-chair-3",
+      "kind": "officeChair",
+      "label": "H형 ① 의자 3",
+      "position": [
+        7.93,
+        0,
+        1.348
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": 90,
+      "group": "h1"
+    },
+    {
+      "id": "h1-chair-4",
+      "kind": "officeChair",
+      "label": "H형 ① 의자 4",
+      "position": [
+        7.93,
+        0,
+        2.752
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": 90,
+      "group": "h1"
+    },
+    {
+      "id": "h2",
+      "kind": "hDesk",
+      "label": "H형 ②",
+      "position": [
+        11.9,
+        0,
+        2.05
+      ],
+      "size": [
+        3.3,
+        0.74,
+        2.6
+      ],
+      "group": "h2"
+    },
+    {
+      "id": "h2-chair-1",
+      "kind": "officeChair",
+      "label": "H형 ② 의자 1",
+      "position": [
+        11.37,
+        0,
+        1.348
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": -90,
+      "group": "h2"
+    },
+    {
+      "id": "h2-chair-2",
+      "kind": "officeChair",
+      "label": "H형 ② 의자 2",
+      "position": [
+        11.37,
+        0,
+        2.752
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": -90,
+      "group": "h2"
+    },
+    {
+      "id": "h2-chair-3",
+      "kind": "officeChair",
+      "label": "H형 ② 의자 3",
+      "position": [
+        12.43,
+        0,
+        1.348
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": 90,
+      "group": "h2"
+    },
+    {
+      "id": "h2-chair-4",
+      "kind": "officeChair",
+      "label": "H형 ② 의자 4",
+      "position": [
+        12.43,
+        0,
+        2.752
+      ],
+      "size": [
+        0.64,
+        1,
+        0.64
+      ],
+      "rotation": 90,
+      "group": "h2"
+    },
+    {
+      "id": "round-1",
+      "kind": "roundMeetingTable",
+      "label": "원형 테이블 ①",
+      "position": [
+        10,
+        0,
+        5.45
+      ],
+      "size": [
+        1,
+        0.74,
+        1
+      ],
+      "group": "round-1"
+    },
+    {
+      "id": "round-1-chair-1",
+      "kind": "meetingChair",
+      "label": "원형 테이블 ① 의자 1",
+      "position": [
+        10,
+        0,
+        4.63
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "group": "round-1"
+    },
+    {
+      "id": "round-1-chair-2",
+      "kind": "meetingChair",
+      "label": "원형 테이블 ① 의자 2",
+      "position": [
+        10.7101,
+        0,
+        5.86
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -120,
+      "group": "round-1"
+    },
+    {
+      "id": "round-1-chair-3",
+      "kind": "meetingChair",
+      "label": "원형 테이블 ① 의자 3",
+      "position": [
+        9.2899,
+        0,
+        5.86
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -240,
+      "group": "round-1"
+    },
+    {
+      "id": "round-2",
+      "kind": "roundMeetingTable",
+      "label": "원형 테이블 ②",
+      "position": [
+        11.85,
+        0,
+        6.7
+      ],
+      "size": [
+        1,
+        0.74,
+        1
+      ],
+      "group": "round-2"
+    },
+    {
+      "id": "round-2-chair-1",
+      "kind": "meetingChair",
+      "label": "원형 테이블 ② 의자 1",
+      "position": [
+        11.85,
+        0,
+        5.88
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "group": "round-2"
+    },
+    {
+      "id": "round-2-chair-2",
+      "kind": "meetingChair",
+      "label": "원형 테이블 ② 의자 2",
+      "position": [
+        12.5601,
+        0,
+        7.11
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -120,
+      "group": "round-2"
+    },
+    {
+      "id": "round-2-chair-3",
+      "kind": "meetingChair",
+      "label": "원형 테이블 ② 의자 3",
+      "position": [
+        11.1399,
+        0,
+        7.11
+      ],
+      "size": [
+        0.52,
+        0.84,
+        0.54
+      ],
+      "rotation": -240,
+      "group": "round-2"
+    },
+    {
+      "id": "lounge-sofa",
+      "kind": "sofa",
+      "label": "라운지 소파",
+      "position": [
+        16.5,
+        0,
+        0.48
+      ],
+      "size": [
+        2,
+        0.82,
+        0.86
+      ]
+    },
+    {
+      "id": "lounge-table",
+      "kind": "sideTable",
+      "label": "라운지 원형 테이블",
+      "position": [
+        16.25,
+        0,
+        2
+      ],
+      "size": [
+        0.7,
+        0.42,
+        0.7
+      ]
+    },
+    {
+      "id": "lounge-armchair",
+      "kind": "armchair",
+      "label": "라운지 암체어",
+      "position": [
+        17.3,
+        0,
+        2.55
+      ],
+      "size": [
+        0.78,
+        0.8,
+        0.78
+      ],
+      "rotation": -120
+    },
+    {
+      "id": "pantry-counter",
+      "kind": "pantryCounter",
+      "label": "탕비 카운터",
+      "position": [
+        16.5,
+        0,
+        4.96
+      ],
+      "size": [
+        2.8,
+        0.9,
+        0.6
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "large-meeting",
+      "name": "대회의실 (14인석)",
+      "rect": [
+        0,
+        0,
+        5,
+        8
+      ]
+    },
+    {
+      "id": "work-area",
+      "name": "메인 업무공간 (10 × 4 m)",
+      "rect": [
+        5,
+        0,
+        15,
+        4
+      ]
+    },
+    {
+      "id": "small-meeting",
+      "name": "소회의실 (6인석)",
+      "rect": [
+        5,
+        4,
+        8.6,
+        8
+      ]
+    },
+    {
+      "id": "open-meeting",
+      "name": "오픈 미팅공간 (4 × 4 m)",
+      "rect": [
+        8.6,
+        4,
+        12.6,
+        8
+      ]
+    },
+    {
+      "id": "entry-circulation",
+      "name": "입구 연결",
+      "rect": [
+        12.6,
+        4,
+        15,
+        8
+      ]
+    },
+    {
+      "id": "lounge",
+      "name": "휴게라운지 (3 × 3.6 m)",
+      "rect": [
+        15,
+        0,
+        18,
+        3.6
+      ],
+      "finish": "loungeCarpet"
+    },
+    {
+      "id": "right-buffer",
+      "name": "조정 구간 (1.0 m (가정))",
+      "rect": [
+        15,
+        3.6,
+        18,
+        4.6
+      ]
+    },
+    {
+      "id": "pantry",
+      "name": "탕비 영역 (3 × 3.4 m)",
+      "rect": [
+        15,
+        4.6,
+        18,
+        8
+      ],
+      "finish": "pantryTile"
+    }
+  ],
+  "source": {
+    "kind": "manual",
+    "originalUnit": "m",
+    "note": "info.png(2D·3D 혼합 이미지)의 표시 치수와 수량을 사람이 읽어 src/config/officePlan.ts에 작성한 값을 옮겼다. 배율 보정은 하지 않았다."
+  },
+  "provenance": [
+    {
+      "path": "/envelope/width",
+      "origin": "source",
+      "confirmed": true,
+      "note": "상단 표시 치수 5.0 + 10.0 + 3.0 m"
+    },
+    {
+      "path": "/envelope/depth",
+      "origin": "source",
+      "confirmed": true,
+      "note": "왼쪽 표시 치수 8.0 m"
+    },
+    {
+      "path": "/envelope/wallThickness",
+      "origin": "user",
+      "confirmed": false,
+      "note": "전체 외곽은 표시 치수대로 18 × 8m로 둡니다(벽 두께 0.2m는 외곽 바깥쪽에 둡니다)."
+    },
+    {
+      "path": "/ceilingHeight",
+      "origin": "default",
+      "confirmed": false,
+      "note": "도면에 높이 표기가 없어 기본값 2.8m 사용"
+    },
+    {
+      "path": "/zones/6",
+      "origin": "derived",
+      "confirmed": false,
+      "note": "전체 깊이 8.0m − (3.6 + 3.4)m"
+    }
+  ],
+  "issues": [
+    {
+      "id": "right-dimension-sum",
+      "kind": "conflict",
+      "path": "/zones/6",
+      "message": "오른쪽 세로 치수 합계 3.6 + 3.4 = 7.0m가 전체 깊이 8.0m보다 1.0m 짧다. 오른쪽 세로 3.6 + 3.4m와 8.0m의 차이 1.0m는 라운지와 탕비 사이 조정 구간으로 둡니다. 나무문은 열어 두어 막지 않습니다.",
+      "resolved": false
+    },
+    {
+      "id": "room-depths",
+      "kind": "assumption",
+      "path": "/zones/2",
+      "message": "소회의실 깊이 4m, 입구 연결 공간 2.4m는 도면 배분을 위한 가정입니다.",
+      "resolved": false
+    },
+    {
+      "id": "seat-counts",
+      "kind": "assumption",
+      "path": "/furniture",
+      "message": "H형 좌석은 세트당 4석(총 8석), 원형 테이블은 테이블당 3석으로 둡니다.",
+      "resolved": false
+    },
+    {
+      "id": "opening-sizes",
+      "kind": "assumption",
+      "path": "/openings",
+      "message": "서쪽 창은 4개(폭 1.3m), 출입문 폭 1.0m, 실내문 폭 0.82~0.9m, 벽 높이는 2.8m로 둡니다.",
+      "resolved": false
+    },
+    {
+      "id": "room-access",
+      "kind": "assumption",
+      "path": "/zones/5",
+      "message": "라운지는 조정 구간 쪽 개구부, 탕비는 입구 쪽 서측 개구부로 출입한다고 가정합니다.",
+      "resolved": false
+    }
+  ],
+  "completeness": {
+    "walls": "reviewed",
+    "openings": "reviewed",
+    "furniture": "reviewed"
+  }
+}

@@ -1,0 +1,844 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "floor-plan-document.v1.schema.json",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "편집기 검증용 JSON Schema 경로(선택)",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+      "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991,
+      "description": "수정 버전. 같은 id의 수정본마다 증가"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "unit": {
+      "type": "string",
+      "const": "m",
+      "description": "정규화된 문서의 길이 단위. 원본 단위는 source.originalUnit"
+    },
+    "envelope": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "실내 마감면 사이 폭(u 방향, m)"
+        },
+        "depth": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "실내 마감면 사이 깊이(v 방향, m)"
+        },
+        "wallThickness": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "외벽 두께(m). 실내 치수 바깥쪽에 둔다."
+        }
+      },
+      "required": [
+        "width",
+        "depth",
+        "wallThickness"
+      ],
+      "additionalProperties": false,
+      "description": "직사각형 외곽. 외곽 벽은 north·east·south·west ID로 참조한다."
+    },
+    "ceilingHeight": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "기본 천장 높이(m)"
+    },
+    "walls": {
+      "maxItems": 300,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "solid",
+              "glass"
+            ]
+          },
+          "start": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "중심선 시작점 [u, v]"
+          },
+          "end": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "중심선 끝점 [u, v]"
+          },
+          "thickness": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "벽 두께(m)"
+          },
+          "height": {
+            "description": "벽 높이(m). 생략하면 ceilingHeight",
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "start",
+          "end",
+          "thickness"
+        ],
+        "additionalProperties": false,
+        "description": "내부 직선 벽(중심선). 개구부 offset은 start에서 잰다."
+      }
+    },
+    "openings": {
+      "maxItems": 500,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+          },
+          "wallId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "소속 벽 ID(내부 벽 ID 또는 north·east·south·west)"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "door",
+              "window",
+              "passage"
+            ],
+            "description": "door = 문, window = 창, passage = 문짝 없는 통로"
+          },
+          "offset": {
+            "type": "number",
+            "description": "소속 벽 시작점에서 개구부 중심까지 거리(m)"
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "bottom": {
+            "type": "number",
+            "minimum": 0,
+            "description": "바닥에서 개구부 하단까지 높이(m). 문·통로는 0"
+          },
+          "door": {
+            "type": "object",
+            "properties": {
+              "leaf": {
+                "type": "string",
+                "enum": [
+                  "glass",
+                  "wood",
+                  "paint",
+                  "none"
+                ],
+                "description": "문짝 종류. none이면 문틀만"
+              },
+              "hinge": {
+                "type": "string",
+                "enum": [
+                  "start",
+                  "end"
+                ],
+                "description": "경첩 위치: 개구부의 벽 진행 방향 시작/끝 쪽"
+              },
+              "swing": {
+                "type": "string",
+                "enum": [
+                  "pos",
+                  "neg"
+                ],
+                "description": "열림 방향: pos = 벽 진행 방향의 왼쪽 법선 쪽(외곽 벽에서는 실내), neg = 반대쪽"
+              },
+              "angle": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 180,
+                "description": "열린 각도(도). 0이면 닫힘"
+              }
+            },
+            "required": [
+              "leaf",
+              "hinge",
+              "swing",
+              "angle"
+            ],
+            "additionalProperties": false,
+            "description": "문짝 표현"
+          }
+        },
+        "required": [
+          "id",
+          "wallId",
+          "kind",
+          "offset",
+          "width",
+          "height",
+          "bottom"
+        ],
+        "additionalProperties": false,
+        "description": "벽 개구부"
+      }
+    },
+    "columns": {
+      "maxItems": 200,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+          },
+          "center": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "도면 좌표 [u, v](m)"
+          },
+          "size": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "[u 방향 폭, v 방향 깊이](m). 높이는 천장까지"
+          }
+        },
+        "required": [
+          "id",
+          "center",
+          "size"
+        ],
+        "additionalProperties": false,
+        "description": "직사각 기둥"
+      }
+    },
+    "furniture": {
+      "maxItems": 2000,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "sofa",
+              "armchair",
+              "coffeeTable",
+              "sideTable",
+              "tvConsole",
+              "tv",
+              "bookshelf",
+              "floorLamp",
+              "pendantLamp",
+              "plant",
+              "rug",
+              "wallArt",
+              "conferenceTable",
+              "meetingChair",
+              "officeChair",
+              "hDesk",
+              "roundMeetingTable",
+              "bench",
+              "lowCabinet",
+              "pantryCounter",
+              "unknown"
+            ],
+            "description": "카탈로그 종류. 분류하지 못하면 unknown(단순 박스로 표시)"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "position": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "items": false,
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "바닥 중심 [u, elevation, v](m)"
+          },
+          "size": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            ],
+            "items": false,
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "[width, height, depth](m)"
+          },
+          "rotation": {
+            "description": "Y축 회전(도). 0이면 정면이 +v, 양수 회전은 정면을 +u 쪽으로 돌린다",
+            "type": "number"
+          },
+          "group": {
+            "description": "가구 묶음(테이블과 좌석 등)",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "position",
+          "size"
+        ],
+        "additionalProperties": false,
+        "description": "가구"
+      }
+    },
+    "zones": {
+      "maxItems": 200,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "rect": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "items": false,
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "[u0, v0, u1, v1](m)"
+          },
+          "finish": {
+            "description": "바닥 마감(기본 재질 라이브러리 ID)",
+            "type": "string",
+            "enum": [
+              "floorWood",
+              "wallPlaster",
+              "ceiling",
+              "baseboard",
+              "walnut",
+              "oakLight",
+              "fabric",
+              "leather",
+              "marble",
+              "blackMetal",
+              "brass",
+              "rug",
+              "ceramic",
+              "soil",
+              "leaf",
+              "screen",
+              "plasticDark",
+              "lampShade",
+              "bulb",
+              "glass",
+              "windowFrame",
+              "doorPaint",
+              "canvasWhite",
+              "books",
+              "carpetDark",
+              "loungeCarpet",
+              "pantryTile",
+              "backsplashTile",
+              "officeWall",
+              "sectionCap",
+              "deskWhite",
+              "conferenceWood",
+              "loungeWood",
+              "doorWood",
+              "meetingFabric",
+              "benchFabric",
+              "officePartitionGlass",
+              "partitionFrame",
+              "windowFrameDark",
+              "counterTop",
+              "stainless",
+              "applianceBlack",
+              "ceilingPanel"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "rect"
+        ],
+        "additionalProperties": false,
+        "description": "직사각 영역"
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "image",
+            "json",
+            "manual"
+          ],
+          "description": "image = 이미지에서 추출, json = 외부 JSON, manual = 사람이 직접 입력"
+        },
+        "originalUnit": {
+          "description": "원본 표기 단위(정규화 전)",
+          "type": "string",
+          "enum": [
+            "mm",
+            "cm",
+            "m",
+            "in",
+            "ft",
+            "px"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxLength": 260
+            },
+            "mimeType": {
+              "type": "string",
+              "enum": [
+                "image/png",
+                "image/jpeg"
+              ]
+            },
+            "width": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "height": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "mimeType",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "crop": {
+          "description": "평면도로 선택한 영역(원본 픽셀)",
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false,
+      "description": "원본 정보"
+    },
+    "calibration": {
+      "type": "object",
+      "properties": {
+        "references": {
+          "minItems": 1,
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "a": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "원본 이미지 픽셀 좌표 [x, y]. 잘라낸 영역이 아니라 원본 전체 기준"
+              },
+              "b": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "원본 이미지 픽셀 좌표 [x, y]. 잘라낸 영역이 아니라 원본 전체 기준"
+              },
+              "length": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "a–b 구간의 실제 길이(m)"
+              }
+            },
+            "required": [
+              "a",
+              "b",
+              "length"
+            ],
+            "additionalProperties": false
+          },
+          "description": "실제 길이를 아는 기준 구간. 서로 다른 방향의 두 구간 이상을 권장"
+        },
+        "pixelToPlan": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "items": false,
+          "minItems": 6,
+          "maxItems": 6,
+          "description": "원본 픽셀 → 도면 m 아핀 변환 [a, b, c, d, e, f]: u = a·x + c·y + e, v = b·x + d·y + f"
+        }
+      },
+      "required": [
+        "references",
+        "pixelToPlan"
+      ],
+      "additionalProperties": false,
+      "description": "이미지 배율 보정"
+    },
+    "provenance": {
+      "maxItems": 20000,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^(\\/([^~/]|~[01])*)+$",
+            "description": "문서 안의 필드를 가리키는 JSON Pointer(RFC 6901). 예: /ceilingHeight, /walls/0/thickness"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "source",
+              "user",
+              "default",
+              "derived"
+            ],
+            "description": "source = 원본에서 추출, user = 사용자 입력, default = 기본값, derived = 계산값"
+          },
+          "confirmed": {
+            "type": "boolean",
+            "description": "사용자가 확인했는지. AI 신뢰도와 별개"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "region": {
+            "description": "원본 이미지 근거 위치",
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height"
+            ],
+            "additionalProperties": false
+          },
+          "confidence": {
+            "description": "추출 도구의 신뢰도 점수(참고용, 정확도 아님)",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "path",
+          "origin",
+          "confirmed"
+        ],
+        "additionalProperties": false,
+        "description": "필드별 정보 출처"
+      }
+    },
+    "issues": {
+      "maxItems": 2000,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "description": "영문·숫자로 시작하는 1~64자 ID(영문·숫자·_·.·-). 문서 안의 벽·개구부·기둥·가구·영역 ID는 모두 서로 달라야 한다."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "missing",
+              "conflict",
+              "unsupported",
+              "assumption"
+            ],
+            "description": "missing = 누락, conflict = 치수 충돌, unsupported = 미지원 항목, assumption = 가정값"
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^(\\/([^~/]|~[01])*)+$",
+            "description": "문서 안의 필드를 가리키는 JSON Pointer(RFC 6901). 예: /ceilingHeight, /walls/0/thickness"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "resolved": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "message",
+          "resolved"
+        ],
+        "additionalProperties": false,
+        "description": "도면에 기록된 확인 항목"
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "properties": {
+        "walls": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "reviewed"
+          ]
+        },
+        "openings": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "reviewed"
+          ]
+        },
+        "furniture": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "reviewed"
+          ]
+        }
+      },
+      "required": [
+        "walls",
+        "openings",
+        "furniture"
+      ],
+      "additionalProperties": false,
+      "description": "목록별 검토 상태. 빈 목록이 확인된 '없음'인지 미인식인지 구분한다."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "unit",
+    "envelope",
+    "ceilingHeight",
+    "walls",
+    "openings"
+  ],
+  "additionalProperties": false,
+  "title": "FloorPlanDocument v1",
+  "description": "도면 → 3D 변환 입력 문서(단층·직사각형 외곽). 형식 검증 후 문서 검증(ID·참조·범위·접합)을 별도로 수행한다."
+}

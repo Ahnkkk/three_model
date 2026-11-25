@@ -1,0 +1,506 @@
+{
+  "readable": true,
+  "planBox": {
+    "x0": 25,
+    "y0": 5,
+    "x1": 590,
+    "y1": 375
+  },
+  "envelope": {
+    "x0": 63,
+    "y0": 58,
+    "x1": 553,
+    "y1": 323
+  },
+  "outerWallThicknessPx": 14,
+  "walls": [
+    {
+      "kind": "glass",
+      "a": {
+        "x": 183,
+        "y": 58
+      },
+      "b": {
+        "x": 183,
+        "y": 323
+      },
+      "thicknessPx": 4,
+      "confidence": 0.8
+    },
+    {
+      "kind": "glass",
+      "a": {
+        "x": 187,
+        "y": 207
+      },
+      "b": {
+        "x": 307,
+        "y": 207
+      },
+      "thicknessPx": 4,
+      "confidence": 0.8
+    },
+    {
+      "kind": "glass",
+      "a": {
+        "x": 307,
+        "y": 207
+      },
+      "b": {
+        "x": 307,
+        "y": 323
+      },
+      "thicknessPx": 4,
+      "confidence": 0.8
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 453,
+        "y": 58
+      },
+      "b": {
+        "x": 453,
+        "y": 177
+      },
+      "thicknessPx": 5,
+      "confidence": 0.8
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 453,
+        "y": 177
+      },
+      "b": {
+        "x": 553,
+        "y": 177
+      },
+      "thicknessPx": 5,
+      "confidence": 0.8
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 478,
+        "y": 177
+      },
+      "b": {
+        "x": 478,
+        "y": 323
+      },
+      "thicknessPx": 5,
+      "confidence": 0.8
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 70,
+        "y": 60
+      },
+      "b": {
+        "x": 550,
+        "y": 60
+      },
+      "thicknessPx": 6,
+      "confidence": 0.8
+    }
+  ],
+  "openings": [
+    {
+      "kind": "door",
+      "a": {
+        "x": 183,
+        "y": 60
+      },
+      "b": {
+        "x": 183,
+        "y": 92
+      },
+      "hinge": "a",
+      "swingToward": {
+        "x": 170,
+        "y": 80
+      },
+      "confidence": 0.7
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 262,
+        "y": 207
+      },
+      "b": {
+        "x": 303,
+        "y": 207
+      },
+      "hinge": "b",
+      "swingToward": {
+        "x": 285,
+        "y": 220
+      },
+      "confidence": 0.7
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 440,
+        "y": 330
+      },
+      "b": {
+        "x": 472,
+        "y": 330
+      },
+      "hinge": "b",
+      "swingToward": {
+        "x": 465,
+        "y": 305
+      },
+      "confidence": 0.7
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 56,
+        "y": 83
+      },
+      "b": {
+        "x": 56,
+        "y": 113
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.7
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 56,
+        "y": 153
+      },
+      "b": {
+        "x": 56,
+        "y": 180
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.7
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 56,
+        "y": 220
+      },
+      "b": {
+        "x": 56,
+        "y": 247
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.7
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 56,
+        "y": 287
+      },
+      "b": {
+        "x": 56,
+        "y": 317
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.7
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 300,
+        "y": 100
+      },
+      "b": {
+        "x": 340,
+        "y": 100
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.7
+    }
+  ],
+  "furniture": [
+    {
+      "kind": "conferenceTable",
+      "label": "대회의실 테이블",
+      "box": {
+        "x0": 108,
+        "y0": 92,
+        "x1": 145,
+        "y1": 260
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "bench",
+      "label": null,
+      "box": {
+        "x0": 63,
+        "y0": 88,
+        "x1": 83,
+        "y1": 280
+      },
+      "facing": "right",
+      "confidence": 0.75
+    },
+    {
+      "kind": "bench",
+      "label": null,
+      "box": {
+        "x0": 165,
+        "y0": 103,
+        "x1": 182,
+        "y1": 280
+      },
+      "facing": "left",
+      "confidence": 0.75
+    },
+    {
+      "kind": "hDesk",
+      "label": "H형 ①",
+      "box": {
+        "x0": 200,
+        "y0": 78,
+        "x1": 297,
+        "y1": 173
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "hDesk",
+      "label": "H형 ②",
+      "box": {
+        "x0": 335,
+        "y0": 78,
+        "x1": 433,
+        "y1": 173
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "conferenceTable",
+      "label": "소회의실 테이블",
+      "box": {
+        "x0": 230,
+        "y0": 230,
+        "x1": 263,
+        "y1": 273
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "roundMeetingTable",
+      "label": null,
+      "box": {
+        "x0": 337,
+        "y0": 230,
+        "x1": 370,
+        "y1": 263
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "roundMeetingTable",
+      "label": null,
+      "box": {
+        "x0": 408,
+        "y0": 238,
+        "x1": 445,
+        "y1": 278
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "sofa",
+      "label": null,
+      "box": {
+        "x0": 473,
+        "y0": 105,
+        "x1": 533,
+        "y1": 130
+      },
+      "facing": "down",
+      "confidence": 0.75
+    },
+    {
+      "kind": "coffeeTable",
+      "label": null,
+      "box": {
+        "x0": 488,
+        "y0": 135,
+        "x1": 515,
+        "y1": 157
+      },
+      "facing": null,
+      "confidence": 0.75
+    },
+    {
+      "kind": "armchair",
+      "label": null,
+      "box": {
+        "x0": 518,
+        "y0": 138,
+        "x1": 548,
+        "y1": 167
+      },
+      "facing": "left",
+      "confidence": 0.75
+    },
+    {
+      "kind": "pantryCounter",
+      "label": "탕비실 카운터",
+      "box": {
+        "x0": 480,
+        "y0": 197,
+        "x1": 553,
+        "y1": 243
+      },
+      "facing": "down",
+      "confidence": 0.75
+    }
+  ],
+  "dimensions": [
+    {
+      "text": "5.0 m",
+      "value": 5,
+      "unit": "m",
+      "a": {
+        "x": 50,
+        "y": 18
+      },
+      "b": {
+        "x": 165,
+        "y": 18
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "10.0 m",
+      "value": 10,
+      "unit": "m",
+      "a": {
+        "x": 165,
+        "y": 18
+      },
+      "b": {
+        "x": 450,
+        "y": 18
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "3.0 m",
+      "value": 3,
+      "unit": "m",
+      "a": {
+        "x": 450,
+        "y": 18
+      },
+      "b": {
+        "x": 553,
+        "y": 18
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "8.0 m",
+      "value": 8,
+      "unit": "m",
+      "a": {
+        "x": 35,
+        "y": 58
+      },
+      "b": {
+        "x": 35,
+        "y": 323
+      },
+      "chain": "side",
+      "role": "total"
+    },
+    {
+      "text": "3.6 m",
+      "value": 3.6,
+      "unit": "m",
+      "a": {
+        "x": 578,
+        "y": 58
+      },
+      "b": {
+        "x": 578,
+        "y": 177
+      },
+      "chain": "side",
+      "role": "part"
+    },
+    {
+      "text": "3.4 m",
+      "value": 3.4,
+      "unit": "m",
+      "a": {
+        "x": 578,
+        "y": 180
+      },
+      "b": {
+        "x": 578,
+        "y": 323
+      },
+      "chain": "side",
+      "role": "part"
+    },
+    {
+      "text": "3.6 m",
+      "value": 3.6,
+      "unit": "m",
+      "a": {
+        "x": 187,
+        "y": 348
+      },
+      "b": {
+        "x": 307,
+        "y": 348
+      },
+      "chain": "bottom",
+      "role": "part"
+    },
+    {
+      "text": "4.0 m",
+      "value": 4,
+      "unit": "m",
+      "a": {
+        "x": 310,
+        "y": 348
+      },
+      "b": {
+        "x": 430,
+        "y": 348
+      },
+      "chain": "bottom",
+      "role": "part"
+    }
+  ],
+  "ceilingHeight": null,
+  "unsupported": [],
+  "notes": [
+    "오른쪽 3D 배치 시안은 제외했습니다.",
+    "도면 치수와 그림 비율이 일정하지 않습니다."
+  ]
+}

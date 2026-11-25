@@ -1,0 +1,41 @@
+{
+  "name": "interior-3d-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3310",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "node scripts/copy-decoders.mjs",
+    "verify:office": "node --import ./scripts/ts-hooks.mjs scripts/verify-office.ts",
+    "schema:floor-plan": "node --import ./scripts/ts-hooks.mjs scripts/generate-floor-plan-files.ts",
+    "verify:floor-plan": "node --import ./scripts/ts-hooks.mjs scripts/verify-floor-plan.ts",
+    "verify:editor": "node --import ./scripts/ts-hooks.mjs scripts/verify-floor-plan-editor.ts",
+    "verify:ai": "node --import ./scripts/ts-hooks.mjs scripts/verify-floor-plan-ai.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.14.0",
+    "@react-three/drei": "10.7.9",
+    "@react-three/fiber": "9.8.2",
+    "next": "16.4.6",
+    "openai": "7.64.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "three": "0.187.0",
+    "zod": "4.6.7",
+    "zustand": "5.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.187.0",
+    "tailwindcss": "4.3.5",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "three": "$three"
+  }
+}

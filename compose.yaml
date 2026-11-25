@@ -1,0 +1,10 @@
+# Docker Desktop에서 실행: docker compose up -d --build  → http://localhost:3000
+# 중지·삭제:              docker compose down
+services:
+  viewer:
+    build: .
+    image: interior-3d-viewer:latest
+    container_name: interior-3d-viewer
+    ports:
+      - "3000:3000" # 다른 포트로 열려면 왼쪽(호스트) 값만 바꾼다. 예: "8080:3000"
+    restart: unless-stopped

@@ -1,0 +1,18 @@
+# 이미지 안에서 새로 설치·생성하는 것
+node_modules
+.next
+out
+public/decoders
+*.tsbuildinfo
+
+# 실행에 필요 없는 것
+.git
+.vscode
+.claude
+.env*
+npm-debug.log*
+*.md
+info.png
+Dockerfile
+.dockerignore
+compose.yaml
