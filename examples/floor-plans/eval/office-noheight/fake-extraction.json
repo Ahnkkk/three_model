@@ -1,0 +1,1068 @@
+{
+  "readable": true,
+  "planBox": {
+    "x0": 0,
+    "y0": 0,
+    "x1": 1498,
+    "y1": 798
+  },
+  "envelope": {
+    "x0": 119,
+    "y0": 119,
+    "x1": 1379,
+    "y1": 679
+  },
+  "outerWallThicknessPx": 14,
+  "walls": [
+    {
+      "kind": "glass",
+      "a": {
+        "x": 469,
+        "y": 119
+      },
+      "b": {
+        "x": 469,
+        "y": 679
+      },
+      "thicknessPx": 5.6,
+      "confidence": 0.9
+    },
+    {
+      "kind": "glass",
+      "a": {
+        "x": 469,
+        "y": 399
+      },
+      "b": {
+        "x": 721,
+        "y": 399
+      },
+      "thicknessPx": 5.6,
+      "confidence": 0.9
+    },
+    {
+      "kind": "glass",
+      "a": {
+        "x": 721,
+        "y": 399
+      },
+      "b": {
+        "x": 721,
+        "y": 679
+      },
+      "thicknessPx": 5.6,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 1169,
+        "y": 119
+      },
+      "b": {
+        "x": 1169,
+        "y": 371
+      },
+      "thicknessPx": 8.4,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 1169,
+        "y": 371
+      },
+      "b": {
+        "x": 1379,
+        "y": 371
+      },
+      "thicknessPx": 8.4,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 1169,
+        "y": 371
+      },
+      "b": {
+        "x": 1169,
+        "y": 441
+      },
+      "thicknessPx": 8.4,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 1169,
+        "y": 441
+      },
+      "b": {
+        "x": 1379,
+        "y": 441
+      },
+      "thicknessPx": 8.4,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 1169,
+        "y": 441
+      },
+      "b": {
+        "x": 1169,
+        "y": 553
+      },
+      "thicknessPx": 8.4,
+      "confidence": 0.9
+    },
+    {
+      "kind": "glass",
+      "a": {
+        "x": 1169,
+        "y": 553
+      },
+      "b": {
+        "x": 1169,
+        "y": 679
+      },
+      "thicknessPx": 5.6,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 1071,
+        "y": 609
+      },
+      "b": {
+        "x": 1071,
+        "y": 679
+      },
+      "thicknessPx": 8.4,
+      "confidence": 0.9
+    }
+  ],
+  "openings": [
+    {
+      "kind": "window",
+      "a": {
+        "x": 112,
+        "y": 241.5
+      },
+      "b": {
+        "x": 112,
+        "y": 150.5
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 112,
+        "y": 374.5
+      },
+      "b": {
+        "x": 112,
+        "y": 283.5
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 112,
+        "y": 511
+      },
+      "b": {
+        "x": 112,
+        "y": 420
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 112,
+        "y": 647.5
+      },
+      "b": {
+        "x": 112,
+        "y": 556.5
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 1151.5,
+        "y": 686
+      },
+      "b": {
+        "x": 1081.5,
+        "y": 686
+      },
+      "hinge": "a",
+      "swingToward": {
+        "x": 1116.5,
+        "y": 651
+      },
+      "confidence": 0.9
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 469,
+        "y": 147
+      },
+      "b": {
+        "x": 469,
+        "y": 210
+      },
+      "hinge": "a",
+      "swingToward": {
+        "x": 437.5,
+        "y": 178.5
+      },
+      "confidence": 0.9
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 647.5,
+        "y": 399
+      },
+      "b": {
+        "x": 710.5,
+        "y": 399
+      },
+      "hinge": "b",
+      "swingToward": {
+        "x": 679,
+        "y": 430.5
+      },
+      "confidence": 0.9
+    },
+    {
+      "kind": "passage",
+      "a": {
+        "x": 1267,
+        "y": 371
+      },
+      "b": {
+        "x": 1330,
+        "y": 371
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 1169,
+        "y": 377.3
+      },
+      "b": {
+        "x": 1169,
+        "y": 434.7
+      },
+      "hinge": "a",
+      "swingToward": {
+        "x": 1197.7,
+        "y": 406
+      },
+      "confidence": 0.9
+    },
+    {
+      "kind": "passage",
+      "a": {
+        "x": 1169,
+        "y": 609
+      },
+      "b": {
+        "x": 1169,
+        "y": 672
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    }
+  ],
+  "furniture": [
+    {
+      "kind": "conferenceTable",
+      "label": "대회의 테이블",
+      "box": {
+        "x0": 252,
+        "y0": 224,
+        "x1": 336,
+        "y1": 560
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 1",
+      "box": {
+        "x0": 212.1,
+        "y0": 242.6,
+        "x1": 249.9,
+        "y1": 279
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 2",
+      "box": {
+        "x0": 212.1,
+        "y0": 295,
+        "x1": 249.9,
+        "y1": 331.5
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 3",
+      "box": {
+        "x0": 212.1,
+        "y0": 347.5,
+        "x1": 249.9,
+        "y1": 384
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 4",
+      "box": {
+        "x0": 212.1,
+        "y0": 400.1,
+        "x1": 249.9,
+        "y1": 436.5
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 5",
+      "box": {
+        "x0": 212.1,
+        "y0": 452.6,
+        "x1": 249.9,
+        "y1": 489
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 6",
+      "box": {
+        "x0": 212.1,
+        "y0": 505.1,
+        "x1": 249.9,
+        "y1": 541.5
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 7",
+      "box": {
+        "x0": 338.1,
+        "y0": 242.6,
+        "x1": 375.9,
+        "y1": 279
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 8",
+      "box": {
+        "x0": 338.1,
+        "y0": 295,
+        "x1": 375.9,
+        "y1": 331.5
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 9",
+      "box": {
+        "x0": 338.1,
+        "y0": 347.5,
+        "x1": 375.9,
+        "y1": 384
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 10",
+      "box": {
+        "x0": 338.1,
+        "y0": 400.1,
+        "x1": 375.9,
+        "y1": 436.5
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 11",
+      "box": {
+        "x0": 338.1,
+        "y0": 452.6,
+        "x1": 375.9,
+        "y1": 489
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 12",
+      "box": {
+        "x0": 338.1,
+        "y0": 505.1,
+        "x1": 375.9,
+        "y1": 541.5
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 13",
+      "box": {
+        "x0": 275.8,
+        "y0": 184.1,
+        "x1": 312.2,
+        "y1": 221.9
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "대회의실 의자 14",
+      "box": {
+        "x0": 275.8,
+        "y0": 562.1,
+        "x1": 312.2,
+        "y1": 599.9
+      },
+      "facing": "up",
+      "confidence": 0.9
+    },
+    {
+      "kind": "bench",
+      "label": "벤치(서측)",
+      "box": {
+        "x0": 138.3,
+        "y0": 210,
+        "x1": 176.8,
+        "y1": 574
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "bench",
+      "label": "벤치(동측)",
+      "box": {
+        "x0": 418.2,
+        "y0": 231,
+        "x1": 456.8,
+        "y1": 567
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "lowCabinet",
+      "label": "낮은 수납장",
+      "box": {
+        "x0": 217,
+        "y0": 647.5,
+        "x1": 385,
+        "y1": 675.5
+      },
+      "facing": "up",
+      "confidence": 0.9
+    },
+    {
+      "kind": "conferenceTable",
+      "label": "소회의 테이블",
+      "box": {
+        "x0": 561.8,
+        "y0": 486.5,
+        "x1": 628.3,
+        "y1": 598.5
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "소회의실 의자 1",
+      "box": {
+        "x0": 521.9,
+        "y0": 497,
+        "x1": 559.7,
+        "y1": 533.4
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "소회의실 의자 2",
+      "box": {
+        "x0": 521.9,
+        "y0": 551.6,
+        "x1": 559.7,
+        "y1": 588
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "소회의실 의자 3",
+      "box": {
+        "x0": 630.3,
+        "y0": 497,
+        "x1": 668.2,
+        "y1": 533.4
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "소회의실 의자 4",
+      "box": {
+        "x0": 630.3,
+        "y0": 551.6,
+        "x1": 668.2,
+        "y1": 588
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "소회의실 의자 5",
+      "box": {
+        "x0": 576.8,
+        "y0": 446.6,
+        "x1": 613.2,
+        "y1": 484.4
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "소회의실 의자 6",
+      "box": {
+        "x0": 576.8,
+        "y0": 600.6,
+        "x1": 613.2,
+        "y1": 638.4
+      },
+      "facing": "up",
+      "confidence": 0.9
+    },
+    {
+      "kind": "hDesk",
+      "label": "H형 ①",
+      "box": {
+        "x0": 521.5,
+        "y0": 171.5,
+        "x1": 752.5,
+        "y1": 353.5
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ① 의자 1",
+      "box": {
+        "x0": 577.5,
+        "y0": 191,
+        "x1": 622.3,
+        "y1": 235.8
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ① 의자 2",
+      "box": {
+        "x0": 577.5,
+        "y0": 289.2,
+        "x1": 622.3,
+        "y1": 334
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ① 의자 3",
+      "box": {
+        "x0": 651.7,
+        "y0": 191,
+        "x1": 696.5,
+        "y1": 235.8
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ① 의자 4",
+      "box": {
+        "x0": 651.7,
+        "y0": 289.2,
+        "x1": 696.5,
+        "y1": 334
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "hDesk",
+      "label": "H형 ②",
+      "box": {
+        "x0": 836.5,
+        "y0": 171.5,
+        "x1": 1067.5,
+        "y1": 353.5
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ② 의자 1",
+      "box": {
+        "x0": 892.5,
+        "y0": 191,
+        "x1": 937.3,
+        "y1": 235.8
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ② 의자 2",
+      "box": {
+        "x0": 892.5,
+        "y0": 289.2,
+        "x1": 937.3,
+        "y1": 334
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ② 의자 3",
+      "box": {
+        "x0": 966.7,
+        "y0": 191,
+        "x1": 1011.5,
+        "y1": 235.8
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "H형 ② 의자 4",
+      "box": {
+        "x0": 966.7,
+        "y0": 289.2,
+        "x1": 1011.5,
+        "y1": 334
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "roundMeetingTable",
+      "label": "원형 테이블 ①",
+      "box": {
+        "x0": 784,
+        "y0": 465.5,
+        "x1": 854,
+        "y1": 535.5
+      },
+      "facing": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "원형 테이블 ① 의자 1",
+      "box": {
+        "x0": 800.8,
+        "y0": 424.2,
+        "x1": 837.2,
+        "y1": 462
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "원형 테이블 ① 의자 2",
+      "box": {
+        "x0": 843.2,
+        "y0": 504,
+        "x1": 894.2,
+        "y1": 554.4
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "원형 테이블 ① 의자 3",
+      "box": {
+        "x0": 743.8,
+        "y0": 504,
+        "x1": 794.8,
+        "y1": 554.4
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "roundMeetingTable",
+      "label": "원형 테이블 ②",
+      "box": {
+        "x0": 913.5,
+        "y0": 553,
+        "x1": 983.5,
+        "y1": 623
+      },
+      "facing": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "원형 테이블 ② 의자 1",
+      "box": {
+        "x0": 930.3,
+        "y0": 511.7,
+        "x1": 966.7,
+        "y1": 549.5
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "원형 테이블 ② 의자 2",
+      "box": {
+        "x0": 972.7,
+        "y0": 591.5,
+        "x1": 1023.7,
+        "y1": 641.9
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "meetingChair",
+      "label": "원형 테이블 ② 의자 3",
+      "box": {
+        "x0": 873.3,
+        "y0": 591.5,
+        "x1": 924.3,
+        "y1": 641.9
+      },
+      "facing": "right",
+      "confidence": 0.9
+    },
+    {
+      "kind": "sofa",
+      "label": "라운지 소파",
+      "box": {
+        "x0": 1204,
+        "y0": 122.5,
+        "x1": 1344,
+        "y1": 182.7
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "sideTable",
+      "label": "라운지 원형 테이블",
+      "box": {
+        "x0": 1232,
+        "y0": 234.5,
+        "x1": 1281,
+        "y1": 283.5
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "armchair",
+      "label": "라운지 암체어",
+      "box": {
+        "x0": 1292.7,
+        "y0": 260.2,
+        "x1": 1367.3,
+        "y1": 334.8
+      },
+      "facing": "left",
+      "confidence": 0.9
+    },
+    {
+      "kind": "pantryCounter",
+      "label": "탕비 카운터",
+      "box": {
+        "x0": 1176,
+        "y0": 445.2,
+        "x1": 1372,
+        "y1": 487.2
+      },
+      "facing": "down",
+      "confidence": 0.9
+    }
+  ],
+  "dimensions": [
+    {
+      "text": "5000",
+      "value": 5000,
+      "unit": null,
+      "a": {
+        "x": 119,
+        "y": 70
+      },
+      "b": {
+        "x": 469,
+        "y": 70
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "10000",
+      "value": 10000,
+      "unit": null,
+      "a": {
+        "x": 469,
+        "y": 70
+      },
+      "b": {
+        "x": 1169,
+        "y": 70
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "3000",
+      "value": 3000,
+      "unit": null,
+      "a": {
+        "x": 1169,
+        "y": 70
+      },
+      "b": {
+        "x": 1379,
+        "y": 70
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "18000",
+      "value": 18000,
+      "unit": null,
+      "a": {
+        "x": 119,
+        "y": 35
+      },
+      "b": {
+        "x": 1379,
+        "y": 35
+      },
+      "chain": "top",
+      "role": "total"
+    },
+    {
+      "text": "8000",
+      "value": 8000,
+      "unit": null,
+      "a": {
+        "x": 70,
+        "y": 119
+      },
+      "b": {
+        "x": 70,
+        "y": 679
+      },
+      "chain": "left",
+      "role": "total"
+    },
+    {
+      "text": "5000",
+      "value": 5000,
+      "unit": null,
+      "a": {
+        "x": 119,
+        "y": 728
+      },
+      "b": {
+        "x": 469,
+        "y": 728
+      },
+      "chain": "bottom",
+      "role": "part"
+    },
+    {
+      "text": "3600",
+      "value": 3600,
+      "unit": null,
+      "a": {
+        "x": 469,
+        "y": 728
+      },
+      "b": {
+        "x": 721,
+        "y": 728
+      },
+      "chain": "bottom",
+      "role": "part"
+    },
+    {
+      "text": "5000",
+      "value": 5000,
+      "unit": null,
+      "a": {
+        "x": 721,
+        "y": 728
+      },
+      "b": {
+        "x": 1071,
+        "y": 728
+      },
+      "chain": "bottom",
+      "role": "part"
+    },
+    {
+      "text": "1400",
+      "value": 1400,
+      "unit": null,
+      "a": {
+        "x": 1071,
+        "y": 728
+      },
+      "b": {
+        "x": 1169,
+        "y": 728
+      },
+      "chain": "bottom",
+      "role": "part"
+    },
+    {
+      "text": "3000",
+      "value": 3000,
+      "unit": null,
+      "a": {
+        "x": 1169,
+        "y": 728
+      },
+      "b": {
+        "x": 1379,
+        "y": 728
+      },
+      "chain": "bottom",
+      "role": "part"
+    },
+    {
+      "text": "3600",
+      "value": 3600,
+      "unit": null,
+      "a": {
+        "x": 1428,
+        "y": 119
+      },
+      "b": {
+        "x": 1428,
+        "y": 371
+      },
+      "chain": "right",
+      "role": "part"
+    },
+    {
+      "text": "1000",
+      "value": 1000,
+      "unit": null,
+      "a": {
+        "x": 1428,
+        "y": 371
+      },
+      "b": {
+        "x": 1428,
+        "y": 441
+      },
+      "chain": "right",
+      "role": "part"
+    },
+    {
+      "text": "3400",
+      "value": 3400,
+      "unit": null,
+      "a": {
+        "x": 1428,
+        "y": 441
+      },
+      "b": {
+        "x": 1428,
+        "y": 679
+      },
+      "chain": "right",
+      "role": "part"
+    }
+  ],
+  "ceilingHeight": null,
+  "unsupported": [],
+  "notes": []
+}

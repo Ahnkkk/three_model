@@ -1,0 +1,312 @@
+{
+  "readable": true,
+  "planBox": {
+    "x0": 0,
+    "y0": 0,
+    "x1": 420,
+    "y1": 370
+  },
+  "envelope": {
+    "x0": 85,
+    "y0": 85,
+    "x1": 335,
+    "y1": 285
+  },
+  "outerWallThicknessPx": 10,
+  "walls": [
+    {
+      "kind": "solid",
+      "a": {
+        "x": 245,
+        "y": 85
+      },
+      "b": {
+        "x": 245,
+        "y": 175
+      },
+      "thicknessPx": 6,
+      "confidence": 0.9
+    },
+    {
+      "kind": "solid",
+      "a": {
+        "x": 245,
+        "y": 175
+      },
+      "b": {
+        "x": 335,
+        "y": 175
+      },
+      "thicknessPx": 6,
+      "confidence": 0.9
+    },
+    {
+      "kind": "glass",
+      "a": {
+        "x": 85,
+        "y": 155
+      },
+      "b": {
+        "x": 145,
+        "y": 155
+      },
+      "thicknessPx": 3,
+      "confidence": 0.9
+    }
+  ],
+  "openings": [
+    {
+      "kind": "door",
+      "a": {
+        "x": 271.3,
+        "y": 175
+      },
+      "b": {
+        "x": 308.8,
+        "y": 175
+      },
+      "hinge": "a",
+      "swingToward": {
+        "x": 290,
+        "y": 156.3
+      },
+      "confidence": 0.9
+    },
+    {
+      "kind": "door",
+      "a": {
+        "x": 340,
+        "y": 212.5
+      },
+      "b": {
+        "x": 340,
+        "y": 257.5
+      },
+      "hinge": "b",
+      "swingToward": {
+        "x": 317.5,
+        "y": 235
+      },
+      "confidence": 0.9
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 130,
+        "y": 80
+      },
+      "b": {
+        "x": 200,
+        "y": 80
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    },
+    {
+      "kind": "window",
+      "a": {
+        "x": 275,
+        "y": 290
+      },
+      "b": {
+        "x": 195,
+        "y": 290
+      },
+      "hinge": null,
+      "swingToward": null,
+      "confidence": 0.9
+    }
+  ],
+  "furniture": [
+    {
+      "kind": "unknown",
+      "label": "책상(미분류)",
+      "box": {
+        "x0": 87.5,
+        "y0": 87.5,
+        "x1": 142.5,
+        "y1": 117.5
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "officeChair",
+      "label": "책상 의자",
+      "box": {
+        "x0": 99,
+        "y0": 116.5,
+        "x1": 131,
+        "y1": 148.5
+      },
+      "facing": "up",
+      "confidence": 0.9
+    },
+    {
+      "kind": "sofa",
+      "label": "소파",
+      "box": {
+        "x0": 127.5,
+        "y0": 238.8,
+        "x1": 222.5,
+        "y1": 281.3
+      },
+      "facing": "up",
+      "confidence": 0.9
+    },
+    {
+      "kind": "coffeeTable",
+      "label": "커피 테이블",
+      "box": {
+        "x0": 150,
+        "y0": 201.3,
+        "x1": 200,
+        "y1": 228.8
+      },
+      "facing": "down",
+      "confidence": 0.9
+    },
+    {
+      "kind": "plant",
+      "label": "화분",
+      "box": {
+        "x0": 90,
+        "y0": 260,
+        "x1": 110,
+        "y1": 280
+      },
+      "facing": null,
+      "confidence": 0.9
+    }
+  ],
+  "dimensions": [
+    {
+      "text": "3200",
+      "value": 3200,
+      "unit": null,
+      "a": {
+        "x": 85,
+        "y": 50
+      },
+      "b": {
+        "x": 245,
+        "y": 50
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "1800",
+      "value": 1800,
+      "unit": null,
+      "a": {
+        "x": 245,
+        "y": 50
+      },
+      "b": {
+        "x": 335,
+        "y": 50
+      },
+      "chain": "top",
+      "role": "part"
+    },
+    {
+      "text": "5000",
+      "value": 5000,
+      "unit": null,
+      "a": {
+        "x": 85,
+        "y": 25
+      },
+      "b": {
+        "x": 335,
+        "y": 25
+      },
+      "chain": "top",
+      "role": "total"
+    },
+    {
+      "text": "1400",
+      "value": 1400,
+      "unit": null,
+      "a": {
+        "x": 50,
+        "y": 85
+      },
+      "b": {
+        "x": 50,
+        "y": 155
+      },
+      "chain": "left",
+      "role": "part"
+    },
+    {
+      "text": "2600",
+      "value": 2600,
+      "unit": null,
+      "a": {
+        "x": 50,
+        "y": 155
+      },
+      "b": {
+        "x": 50,
+        "y": 285
+      },
+      "chain": "left",
+      "role": "part"
+    },
+    {
+      "text": "4000",
+      "value": 4000,
+      "unit": null,
+      "a": {
+        "x": 25,
+        "y": 85
+      },
+      "b": {
+        "x": 25,
+        "y": 285
+      },
+      "chain": "left",
+      "role": "total"
+    },
+    {
+      "text": "1800",
+      "value": 1800,
+      "unit": null,
+      "a": {
+        "x": 370,
+        "y": 85
+      },
+      "b": {
+        "x": 370,
+        "y": 175
+      },
+      "chain": "right",
+      "role": "part"
+    },
+    {
+      "text": "2200",
+      "value": 2200,
+      "unit": null,
+      "a": {
+        "x": 370,
+        "y": 175
+      },
+      "b": {
+        "x": 370,
+        "y": 285
+      },
+      "chain": "right",
+      "role": "part"
+    }
+  ],
+  "ceilingHeight": {
+    "text": "CH 2600",
+    "value": 2600,
+    "unit": null
+  },
+  "unsupported": [],
+  "notes": []
+}

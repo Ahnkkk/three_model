@@ -1,0 +1,93 @@
+{
+  "$schema": "../../../../schemas/floor-plan-document.v1.schema.json",
+  "schemaVersion": 1,
+  "id": "studio-lowres",
+  "revision": 1,
+  "title": "studio-lowres (AI 추출 전)",
+  "unit": "m",
+  "envelope": {
+    "width": 5,
+    "depth": 4,
+    "wallThickness": 0.2
+  },
+  "ceilingHeight": 2.8,
+  "walls": [],
+  "openings": [],
+  "furniture": [],
+  "source": {
+    "kind": "image",
+    "image": {
+      "name": "plan.jpg",
+      "mimeType": "image/jpeg",
+      "width": 420,
+      "height": 395
+    }
+  },
+  "provenance": [
+    {
+      "path": "/envelope/width",
+      "origin": "derived",
+      "confirmed": false,
+      "note": "기준 구간에서 환산(50.0 px/m)"
+    },
+    {
+      "path": "/envelope/depth",
+      "origin": "derived",
+      "confirmed": false,
+      "note": "기준 구간에서 환산(50.0 px/m)"
+    },
+    {
+      "path": "/envelope/wallThickness",
+      "origin": "default",
+      "confirmed": false,
+      "note": "도면 표기 없음. 기본값 0.2m"
+    },
+    {
+      "path": "/ceilingHeight",
+      "origin": "default",
+      "confirmed": false,
+      "note": "도면에 높이 표기가 없어 기본값 2.8m 사용"
+    }
+  ],
+  "completeness": {
+    "walls": "unreviewed",
+    "openings": "unreviewed",
+    "furniture": "unreviewed"
+  },
+  "calibration": {
+    "references": [
+      {
+        "label": "상단 전체 5000",
+        "a": [
+          85,
+          25
+        ],
+        "b": [
+          335,
+          25
+        ],
+        "length": 5
+      },
+      {
+        "label": "좌측 전체 4000",
+        "a": [
+          25,
+          85
+        ],
+        "b": [
+          25,
+          285
+        ],
+        "length": 4
+      }
+    ],
+    "pixelToPlan": [
+      0.02,
+      0,
+      0,
+      0.02,
+      -1.7,
+      -1.7
+    ]
+  }
+}

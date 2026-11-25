@@ -78,6 +78,9 @@ export interface DimensionCheck {
   stated: number | null;
   /** 보정으로 잰 구간 길이(m) */
   measured: number;
+  /** 치수가 가리킨 구간의 양 끝(도면 m). 치수선 위의 점이라 벽에서 떨어져 있을 수 있다. */
+  a: Pt;
+  b: Pt;
   /** 단위 표기가 없어 잰 길이에 가장 가까운 단위로 해석했는지 */
   unitAssumed: boolean;
   status: "ok" | "conflict" | "unread";
@@ -323,11 +326,12 @@ export function buildProposal(doc: FloorPlanDocument, extraction: FloorPlanExtra
     const pa = toPlan(d.a);
     const pb = toPlan(d.b);
     const measured = mm(Math.hypot(pb[0] - pa[0], pb[1] - pa[1]));
+    const span = { a: [mm(pa[0]), mm(pa[1])] as Pt, b: [mm(pb[0]), mm(pb[1])] as Pt };
     const read = toMetres(d.value, d.unit, measured);
-    if (!read) return { text: d.text, stated: null, measured, unitAssumed: false, status: "unread", chain: d.chain, role: d.role };
+    if (!read) return { text: d.text, stated: null, measured, ...span, unitAssumed: false, status: "unread", chain: d.chain, role: d.role };
     const tol = Math.max(T.dimensionAbs, T.dimensionRel * read.metres);
     const status = Math.abs(read.metres - measured) > tol ? "conflict" : "ok";
-    return { text: d.text, stated: mm(read.metres), measured, unitAssumed: read.assumed, status, chain: d.chain, role: d.role };
+    return { text: d.text, stated: mm(read.metres), measured, ...span, unitAssumed: read.assumed, status, chain: d.chain, role: d.role };
   });
   dimensions.forEach((d, i) => {
     if (d.status === "conflict" && d.stated !== null) {

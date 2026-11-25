@@ -1,0 +1,111 @@
+{
+  "id": "studio-clean",
+  "description": "합성: 소형 원룸(5×4m) 깨끗한 축척 도면. 천장 높이 표기 있음.",
+  "categories": [
+    "clean"
+  ],
+  "synthetic": true,
+  "image": "plan.png",
+  "base": "base.json",
+  "truth": "truth.json",
+  "fakeExtraction": "fake-extraction.json",
+  "ceilingHeightMissing": false,
+  "dimensions": [
+    {
+      "text": "3200",
+      "value": 3.2,
+      "a": [
+        0,
+        -0.7
+      ],
+      "b": [
+        3.2,
+        -0.7
+      ]
+    },
+    {
+      "text": "1800",
+      "value": 1.8,
+      "a": [
+        3.2,
+        -0.7
+      ],
+      "b": [
+        5,
+        -0.7
+      ]
+    },
+    {
+      "text": "5000",
+      "value": 5,
+      "a": [
+        0,
+        -1.2
+      ],
+      "b": [
+        5,
+        -1.2
+      ]
+    },
+    {
+      "text": "1400",
+      "value": 1.4,
+      "a": [
+        -0.7,
+        0
+      ],
+      "b": [
+        -0.7,
+        1.4
+      ]
+    },
+    {
+      "text": "2600",
+      "value": 2.6,
+      "a": [
+        -0.7,
+        1.4
+      ],
+      "b": [
+        -0.7,
+        4
+      ]
+    },
+    {
+      "text": "4000",
+      "value": 4,
+      "a": [
+        -1.2,
+        0
+      ],
+      "b": [
+        -1.2,
+        4
+      ]
+    },
+    {
+      "text": "1800",
+      "value": 1.8,
+      "a": [
+        5.7,
+        0
+      ],
+      "b": [
+        5.7,
+        1.8
+      ]
+    },
+    {
+      "text": "2200",
+      "value": 2.2,
+      "a": [
+        5.7,
+        1.8
+      ],
+      "b": [
+        5.7,
+        4
+      ]
+    }
+  ]
+}
